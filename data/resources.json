@@ -1,0 +1,552 @@
+{
+  "taxonomy": {
+    "topics": {
+      "mathematics": "Mathematics",
+      "literacy": "Literacy",
+      "social-emotional": "Social-emotional Learning"
+    },
+    "ageGroups": {
+      "birth-3": "Birth–3",
+      "pre-kindergarten": "Pre-kindergarten",
+      "kindergarten": "Kindergarten"
+    },
+    "languages": {
+      "english": "English",
+      "spanish": "Spanish"
+    },
+    "audiences": {
+      "families": "Families",
+      "educators": "Educators / Practitioners",
+      "researchers": "Researchers"
+    },
+    "formats": {
+      "game": "Game",
+      "video": "Video",
+      "link": "Link",
+      "pdf": "PDF",
+      "text": "Text",
+      "image": "Image",
+      "slides": "Slides"
+    }
+  },
+  "resources": [
+    {
+      "id": "sample-counting-together",
+      "title": "Counting Together — Sample",
+      "summary": "An illustrative adult-guided counting activity.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "mathematics"
+      ],
+      "ageGroups": [
+        "pre-kindergarten"
+      ],
+      "languages": [
+        "english",
+        "spanish"
+      ],
+      "audiences": [
+        "families",
+        "educators"
+      ],
+      "formats": [
+        "pdf"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "PDF material",
+          "format": "pdf",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-shape-hunt",
+      "title": "Shape Hunt — Sample",
+      "summary": "A demonstration game about noticing shapes.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "mathematics"
+      ],
+      "ageGroups": [
+        "kindergarten"
+      ],
+      "languages": [
+        "english"
+      ],
+      "audiences": [
+        "families"
+      ],
+      "formats": [
+        "game"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Game material",
+          "format": "game",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-pattern-cards",
+      "title": "Pattern Cards — Sample",
+      "summary": "Example picture cards for exploring patterns.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "mathematics"
+      ],
+      "ageGroups": [
+        "pre-kindergarten",
+        "kindergarten"
+      ],
+      "languages": [
+        "spanish"
+      ],
+      "audiences": [
+        "educators"
+      ],
+      "formats": [
+        "image"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Image material",
+          "format": "image",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-number-talk",
+      "title": "Number Talk — Sample",
+      "summary": "An example outline for a conversation about numbers.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "mathematics"
+      ],
+      "ageGroups": [
+        "kindergarten"
+      ],
+      "languages": [
+        "english"
+      ],
+      "audiences": [
+        "educators",
+        "researchers"
+      ],
+      "formats": [
+        "slides"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Slides material",
+          "format": "slides",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-size-and-space",
+      "title": "Size and Space — Sample",
+      "summary": "A sample description of noticing size with an adult.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "mathematics"
+      ],
+      "ageGroups": [
+        "birth-3"
+      ],
+      "languages": [
+        "english",
+        "spanish"
+      ],
+      "audiences": [
+        "families"
+      ],
+      "formats": [
+        "text"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Text material",
+          "format": "text",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-story-time",
+      "title": "Shared Story Time — Sample",
+      "summary": "An illustrative outline for reading together.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "literacy"
+      ],
+      "ageGroups": [
+        "birth-3",
+        "pre-kindergarten"
+      ],
+      "languages": [
+        "english",
+        "spanish"
+      ],
+      "audiences": [
+        "families",
+        "educators"
+      ],
+      "formats": [
+        "pdf"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "PDF material",
+          "format": "pdf",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-rhyme-play",
+      "title": "Rhyme Play — Sample",
+      "summary": "A placeholder demonstration of an adult-led rhyming game.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "literacy"
+      ],
+      "ageGroups": [
+        "pre-kindergarten"
+      ],
+      "languages": [
+        "english"
+      ],
+      "audiences": [
+        "families",
+        "educators"
+      ],
+      "formats": [
+        "game"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Game material",
+          "format": "game",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-picture-talk",
+      "title": "Picture Talk — Sample",
+      "summary": "Example prompts for talking about a picture.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "literacy"
+      ],
+      "ageGroups": [
+        "birth-3"
+      ],
+      "languages": [
+        "spanish"
+      ],
+      "audiences": [
+        "families"
+      ],
+      "formats": [
+        "image"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Image material",
+          "format": "image",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-letter-exploration",
+      "title": "Letter Exploration — Sample",
+      "summary": "A sample video listing about exploring letters.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "literacy"
+      ],
+      "ageGroups": [
+        "kindergarten"
+      ],
+      "languages": [
+        "english"
+      ],
+      "audiences": [
+        "educators"
+      ],
+      "formats": [
+        "video"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Video material",
+          "format": "video",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-reading-observations",
+      "title": "Reading Observations — Sample",
+      "summary": "A demonstration reference listing for discussing reading routines.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "literacy"
+      ],
+      "ageGroups": [
+        "pre-kindergarten",
+        "kindergarten"
+      ],
+      "languages": [
+        "english",
+        "spanish"
+      ],
+      "audiences": [
+        "researchers",
+        "educators"
+      ],
+      "formats": [
+        "link"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Link material",
+          "format": "link",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-naming-feelings",
+      "title": "Naming Feelings — Sample",
+      "summary": "Example cards for a conversation about feelings.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "social-emotional"
+      ],
+      "ageGroups": [
+        "birth-3",
+        "pre-kindergarten"
+      ],
+      "languages": [
+        "english",
+        "spanish"
+      ],
+      "audiences": [
+        "families",
+        "educators"
+      ],
+      "formats": [
+        "pdf"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "PDF material",
+          "format": "pdf",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-taking-turns",
+      "title": "Taking Turns — Sample",
+      "summary": "An illustrative game listing about sharing turns.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "social-emotional"
+      ],
+      "ageGroups": [
+        "pre-kindergarten",
+        "kindergarten"
+      ],
+      "languages": [
+        "spanish"
+      ],
+      "audiences": [
+        "families",
+        "educators"
+      ],
+      "formats": [
+        "game"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Game material",
+          "format": "game",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-daily-routines",
+      "title": "Daily Routines — Sample",
+      "summary": "An example visual sequence for discussing everyday routines.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "social-emotional"
+      ],
+      "ageGroups": [
+        "birth-3"
+      ],
+      "languages": [
+        "english"
+      ],
+      "audiences": [
+        "families"
+      ],
+      "formats": [
+        "image"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Image material",
+          "format": "image",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-classroom-conversations",
+      "title": "Classroom Conversations — Sample",
+      "summary": "A sample presentation listing about group conversations.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "social-emotional",
+        "literacy"
+      ],
+      "ageGroups": [
+        "kindergarten"
+      ],
+      "languages": [
+        "english",
+        "spanish"
+      ],
+      "audiences": [
+        "educators",
+        "researchers"
+      ],
+      "formats": [
+        "slides"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Slides material",
+          "format": "slides",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    },
+    {
+      "id": "sample-learning-together",
+      "title": "Learning Together — Sample",
+      "summary": "A sample video listing about adult-child learning interactions.",
+      "description": "Demonstration content for reviewing the resource guide. This listing does not represent a verified educational resource.",
+      "topics": [
+        "social-emotional",
+        "mathematics"
+      ],
+      "ageGroups": [
+        "birth-3",
+        "pre-kindergarten"
+      ],
+      "languages": [
+        "spanish"
+      ],
+      "audiences": [
+        "families",
+        "researchers"
+      ],
+      "formats": [
+        "video"
+      ],
+      "provider": null,
+      "instructions": "Sample guidance only: use this listing to review the information shown before choosing a resource. Actual use instructions are pending approved content.",
+      "materials": [
+        {
+          "label": "Video material",
+          "format": "video",
+          "url": null,
+          "isPlaceholder": true
+        }
+      ],
+      "isSample": true,
+      "lastReviewed": null
+    }
+  ]
+}
