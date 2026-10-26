@@ -1,0 +1,79 @@
+/* ============================================================
+   selector.css — Neutral client-facing concept selector
+   A calm, brand-agnostic landing page that previews both
+   design directions without favoring either one.
+   ============================================================ */
+
+:root {
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --color-bg: #f6f5f2;
+  --color-surface: #ffffff;
+  --color-surface-alt: #ffffff;
+  --color-text: #242424;
+  --color-text-muted: #5a5a5a;
+  --color-heading: #1c1c1c;
+
+  --color-accent: #2c2c2c;
+  --color-accent-contrast: #ffffff;
+  --color-accent-hover: #000000;
+
+  --color-border: #e2ded6;
+  --color-border-soft: #e2ded6;
+
+  --color-header-bg: #1c1c1c;
+  --color-header-text: #ffffff;
+  --color-header-border: #cfae70;
+  --color-nav-link: #ece6da;
+  --color-nav-link-active: #cfae70;
+  --color-nav-link-hover: #cfae70;
+
+  --color-footer-bg: #1c1c1c;
+  --color-footer-text: #ece6da;
+
+  --color-focus: #1f5f6b;
+
+  --radius-md: 12px;
+  --shadow-card: 0 2px 14px rgba(0, 0, 0, 0.06);
+  --border-card: 1px solid var(--color-border);
+}
+
+.selector-intro { text-align: center; margin-top: 44px; }
+.selector-intro h1 { margin-bottom: 4px; }
+.selector-intro .subtitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-text-muted);
+  margin: 0 auto 18px;
+}
+.selector-intro p { margin-inline: auto; }
+
+.concept-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.concept-card { position: relative; overflow: hidden; }
+.concept-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+}
+.concept-vandy::before {
+  background: linear-gradient(90deg, #1c1c1c 0 50%, #cfae70 50% 100%);
+}
+.concept-warm::before {
+  background: linear-gradient(90deg, #1f5f6b 0 33%, #e07a5f 33% 66%, #f2b84b 66% 100%);
+}
+.concept-card h2 { margin-top: 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

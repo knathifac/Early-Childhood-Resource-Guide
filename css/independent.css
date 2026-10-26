@@ -1,0 +1,186 @@
+/* ============================================================
+   independent.css — COA 2: Warm & Child-Centered concept
+   A distinct, warm, approachable identity for the guide.
+   Warm, inviting, educational — professional, not childish.
+   ============================================================ */
+
+:root {
+  /* Exact supplied palette */
+  --teal: #1f5f6b;
+  --coral: #e07a5f;
+  --yellow: #f2b84b;
+  --sage: #8fb39a;
+  --charcoal: #233030;
+  --off-white: #faf6ef;
+
+  /* Derived state / neutral colors (accessibility & interaction only) */
+  --teal-deep: #184851;      /* darker teal for hover */
+  --coral-deep: #c9634a;     /* darker coral for hover / links on light */
+  --sage-soft: #e4eee7;      /* tint of sage for subtle surfaces */
+  --cream-card: #ffffff;     /* clean card surface over off-white */
+  --line-soft: #e3dccd;      /* soft warm border */
+
+  /* Fonts — friendly, humanist, professional */
+  --font-display: "Trebuchet MS", "Segoe UI", Verdana, system-ui, sans-serif;
+  --font-body: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+
+  /* Surfaces & text */
+  --color-bg: var(--off-white);
+  --color-surface: var(--sage-soft);
+  --color-surface-alt: var(--cream-card);
+  --color-text: var(--charcoal);
+  --color-text-muted: #51605c;
+  --color-heading: var(--teal);
+
+  /* Accent — teal is the primary action color */
+  --color-accent: var(--teal);
+  --color-accent-contrast: #ffffff;
+  --color-accent-hover: var(--teal-deep);
+
+  /* Borders */
+  --color-border: var(--line-soft);
+  --color-border-soft: var(--line-soft);
+
+  /* Header — deep teal, warm and confident */
+  --color-header-bg: var(--teal);
+  --color-header-text: #ffffff;
+  --color-header-border: var(--yellow);
+  --color-nav-link: #eaf3f0;
+  --color-nav-link-active: var(--yellow);
+  --color-nav-link-hover: var(--yellow);
+
+  /* Footer */
+  --color-footer-bg: var(--charcoal);
+  --color-footer-text: #eef3ef;
+
+  /* Notices */
+  --color-notice-bg: #fdf3e3;
+  --color-notice-border: var(--yellow);
+  --color-notice-text: #4a3d20;
+
+  --color-focus: var(--coral-deep);
+
+  /* Shape language: soft, rounded */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 2px 10px rgba(35, 48, 48, 0.06);
+  --shadow-card-hover: 0 8px 24px rgba(35, 48, 48, 0.12);
+  --shadow-header: 0 2px 12px rgba(31, 95, 107, 0.18);
+
+  --border-card: 1px solid var(--line-soft);
+}
+
+/* ---- Header: rounded gold rule, friendly brand ---- */
+header { border-bottom: 4px solid var(--yellow); }
+.brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.brand::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+  vertical-align: -2px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 0 4px rgba(242, 184, 75, 0.35);
+}
+nav a { font-weight: 600; }
+nav a:hover { text-decoration: none; }
+nav [aria-current="page"] {
+  text-decoration: none;
+  background: rgba(242, 184, 75, 0.18);
+  color: var(--yellow);
+}
+
+/* ---- Headings ---- */
+h1 { color: var(--charcoal); font-weight: 700; }
+h2 { color: var(--teal); font-weight: 700; }
+
+/* ---- Hero: warm coral-to-sage inviting band ---- */
+.hero {
+  background: linear-gradient(135deg, var(--sage-soft) 0%, #fdf3e3 100%);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: 44px 40px;
+  margin-top: 28px;
+}
+.hero h1 { color: var(--teal-deep); }
+.hero p { color: var(--color-text-muted); }
+
+/* ---- Buttons: expressive, rounded, warm ---- */
+.button, button, input, select {
+  border-radius: var(--radius-sm);
+}
+.button.primary, .primary {
+  box-shadow: 0 3px 0 0 var(--teal-deep);
+  font-weight: 700;
+}
+.button.primary:hover, .primary:hover {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 0 var(--teal-deep);
+}
+.button:not(.primary) {
+  background: #ffffff;
+  color: var(--teal-deep);
+  border: 1.5px solid var(--teal);
+  font-weight: 700;
+}
+.button:not(.primary):hover {
+  background: var(--sage-soft);
+}
+
+/* ---- Topic panels: colorful left accents for differentiation ---- */
+.panel {
+  border-left: 6px solid var(--coral);
+  background: #ffffff;
+  font-weight: 700;
+  color: var(--teal-deep);
+}
+.panel:nth-child(2) { border-left-color: var(--yellow); }
+.panel:nth-child(3) { border-left-color: var(--sage); }
+
+/* ---- Resource cards: soft, inviting, coral accent ---- */
+.card {
+  border: 1px solid var(--line-soft);
+  border-top: 4px solid var(--sage);
+}
+.card:hover { border-top-color: var(--coral); }
+.card h2 { color: var(--teal); }
+
+.sample {
+  background: var(--yellow);
+  color: #4a3d20;
+}
+
+/* ---- Filters: soft sage panel ---- */
+details#filter-panel {
+  background: var(--sage-soft);
+  border-color: var(--sage);
+}
+legend { color: var(--teal); border-bottom-color: var(--sage); }
+
+/* ---- Chips: rounded, coral on hover ---- */
+.chips button {
+  background: #ffffff;
+  border-color: var(--teal);
+  color: var(--teal-deep);
+  font-weight: 600;
+}
+.chips button:hover {
+  background: var(--coral);
+  color: #ffffff;
+  border-color: var(--coral-deep);
+}
+
+/* ---- Links in body use coral-deep for warmth + contrast ---- */
+main p a { color: var(--coral-deep); }
+
+/* ---- Footer ---- */
+footer { border-top: 4px solid var(--yellow); }

@@ -1,0 +1,173 @@
+/* ============================================================
+   vandy.css — COA 1: Vanderbilt-style concept
+   Institutional, editorial, academic presentation.
+   NOTE: This is a DESIGN DIRECTION only. It contains no
+   Vanderbilt logos, seals, wordmarks, or official identity.
+   ============================================================ */
+
+:root {
+  /* Exact supplied palette */
+  --vandy-gold: #cfae70;
+  --vandy-black: #1c1c1c;
+  --vandy-white: #ffffff;
+  --vandy-cream: #e0d5c0;
+
+  /* Derived neutrals (borders / hover / state only) */
+  --vandy-gold-deep: #b5945a;   /* darker gold for text-on-light contrast & hover */
+  --vandy-cream-soft: #f3ede1;  /* subtle cream background */
+  --vandy-line: #d8cdb6;        /* understated border on cream */
+  --vandy-gray: #4a4642;        /* muted warm text */
+
+  /* Fonts */
+  --font-display: Georgia, "Times New Roman", "Iowan Old Style", serif;
+  --font-body: "Helvetica Neue", Arial, system-ui, sans-serif;
+
+  /* Surfaces & text */
+  --color-bg: var(--vandy-white);
+  --color-surface: var(--vandy-cream-soft);
+  --color-surface-alt: var(--vandy-white);
+  --color-text: #22201d;
+  --color-text-muted: var(--vandy-gray);
+  --color-heading: var(--vandy-black);
+
+  /* Accent — use deep gold for interactive fills so white text passes contrast */
+  --color-accent: var(--vandy-black);
+  --color-accent-contrast: var(--vandy-white);
+  --color-accent-hover: #000000;
+
+  /* Borders */
+  --color-border: var(--vandy-line);
+  --color-border-soft: var(--vandy-line);
+
+  /* Header (black, institutional) */
+  --color-header-bg: var(--vandy-black);
+  --color-header-text: var(--vandy-white);
+  --color-header-border: var(--vandy-gold);
+  --color-nav-link: #ece6da;
+  --color-nav-link-active: var(--vandy-gold);
+  --color-nav-link-hover: var(--vandy-gold);
+
+  /* Footer */
+  --color-footer-bg: var(--vandy-black);
+  --color-footer-text: #ece6da;
+
+  /* Notices */
+  --color-notice-bg: var(--vandy-cream-soft);
+  --color-notice-border: var(--vandy-gold);
+  --color-notice-text: #3a352c;
+
+  --color-focus: var(--vandy-gold-deep);
+
+  /* Shape language: squared, editorial */
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 3px;
+  --radius-pill: 2px;
+
+  --shadow-card: none;
+  --shadow-card-hover: 0 2px 0 0 var(--vandy-gold);
+  --shadow-header: none;
+
+  --border-card: 1px solid var(--vandy-line);
+}
+
+/* ---- Header: strong black bar with a gold rule beneath ---- */
+header { border-bottom: 3px solid var(--vandy-gold); }
+.brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.005em;
+}
+.brand::before {
+  /* restrained gold accent mark in place of any logo */
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 22px;
+  margin-right: 12px;
+  vertical-align: -4px;
+  background: var(--vandy-gold);
+}
+nav a { letter-spacing: 0.02em; text-transform: uppercase; font-size: 0.82rem; }
+
+/* ---- Headings: serif, editorial, with gold underscore on h1 ---- */
+h1 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+main > h1 {
+  padding-bottom: 14px;
+  border-bottom: 3px solid var(--vandy-gold);
+  display: inline-block;
+}
+h2 { font-weight: 700; }
+
+/* ---- Hero: cream editorial band ---- */
+.hero {
+  background: var(--vandy-cream-soft);
+  border: 1px solid var(--vandy-line);
+  border-left: 6px solid var(--vandy-gold);
+  padding: 44px 40px;
+  margin-top: 28px;
+}
+.hero h1 { border: 0; }
+.hero p { color: var(--vandy-gray); }
+
+/* ---- Buttons: black primary, gold hover rule ---- */
+.button.primary, .primary {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+  border-bottom: 3px solid var(--vandy-gold);
+}
+.button {
+  border: 1px solid var(--vandy-black);
+}
+.button:not(.primary) {
+  background: var(--vandy-white);
+  color: var(--vandy-black);
+}
+.button:not(.primary):hover {
+  background: var(--vandy-cream-soft);
+  border-color: var(--vandy-gold-deep);
+}
+
+/* ---- Topic panels: editorial cards with gold top rule ---- */
+.panel {
+  border-top: 4px solid var(--vandy-gold);
+  background: var(--vandy-white);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+/* ---- Resource cards: structured, gold accent on hover ---- */
+.card { border-top: 4px solid var(--vandy-black); }
+.card:hover { border-top-color: var(--vandy-gold-deep); }
+.card h2 { font-family: var(--font-display); }
+
+.sample {
+  background: var(--vandy-black);
+  color: var(--vandy-gold);
+  border: 1px solid var(--vandy-gold);
+}
+
+/* ---- Filters: cream panel, gold legend rule ---- */
+details#filter-panel { background: var(--vandy-cream-soft); }
+legend { border-bottom-color: var(--vandy-gold); }
+
+/* ---- Chips: understated, gold on hover ---- */
+.chips button {
+  background: var(--vandy-white);
+  border-color: var(--vandy-line);
+}
+.chips button:hover {
+  background: var(--vandy-black);
+  color: var(--vandy-gold);
+  border-color: var(--vandy-black);
+}
+
+/* ---- Footer ---- */
+footer { border-top: 3px solid var(--vandy-gold); }
+
+/* ---- Concept-selector cards (shared root uses base theme; vandy pages don't) ---- */
