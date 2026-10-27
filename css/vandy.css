@@ -171,3 +171,10 @@ legend { border-bottom-color: var(--vandy-gold); }
 footer { border-top: 3px solid var(--vandy-gold); }
 
 /* ---- Concept-selector cards (shared root uses base theme; vandy pages don't) ---- */
+
+/* Keep return navigation above the inline editorial heading. */
+.back-to-start {
+  display: block;
+  width: fit-content;
+  margin: 24px 0 16px;
+}

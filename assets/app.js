@@ -19,7 +19,7 @@ async function load() {
     const response = await fetch(new URL('../data/resources.json', import.meta.url));
     if (!response.ok) throw new Error('Unable to fetch data');
     const data = validateData(await response.json());
-    if (page === 'resources') directory(data); else detail(data);
+    if (page === 'index') home(data); else if (page === 'resources') directory(data); else detail(data);
     status.replaceChildren();
   } catch {
     status.replaceChildren(el('h2', 'Resources could not be loaded'), el('p', 'Check your connection and try again. For a local preview, serve this folder over HTTP. If the problem continues, check data/resources.json for valid resource data.'));
@@ -29,16 +29,11 @@ async function load() {
 function directory({ resources, taxonomy }) {
   let state = readState(location.search, taxonomy);
   const filters = $('#filters'); filters.replaceChildren();
-  for (const [key, label] of Object.entries(facets)) {
-    const group = el('fieldset'); group.append(el('legend', label));
-    for (const [value, title] of Object.entries(taxonomy[key])) {
-      const row = el('label', '', 'check-label'); const box = el('input'); box.type = 'checkbox'; box.name = key; box.value = value;
-      box.addEventListener('change', () => { state[key] = [...filters.querySelectorAll(`input[name="${key}"]:checked`)].map(input => input.value); update(); });
-      row.append(box, document.createTextNode(title)); group.append(row);
-    }
-    filters.append(group);
-  }
-  $('#filter-panel').open = !mobile.matches;
+  buildFilters(filters, taxonomy, () => {
+    for (const key of Object.keys(facets)) state[key] = [...filters.querySelectorAll(`input[name="${key}"]:checked`)].map(input => input.value);
+    update();
+  });
+  $('#filter-panel').open = Object.keys(facets).some(key => state[key].length);
   function update(push = true) {
     const query = writeState(state);
     if (push && query !== location.search.slice(1)) history.pushState(null, '', location.pathname + (query ? '?' + query : '') + location.hash);
@@ -51,6 +46,7 @@ function directory({ resources, taxonomy }) {
       const button = el('button', `Remove ${text} ×`); button.type = 'button';
       button.addEventListener('click', () => { const index = [...chips.children].indexOf(button); remove(); update(); (chips.children[index] || chips.lastElementChild || $('#clear-all')).focus(); }); chips.append(button);
     }
+    if (state.featured) chip('featured resources', () => { state.featured = false; });
     if (state.q) chip(`search: ${state.q}`, () => { state.q = ''; });
     for (const [key, label] of Object.entries(facets)) for (const value of state[key]) chip(`${label}: ${taxonomy[key][value]}`, () => { state[key] = state[key].filter(v => v !== value); });
     const results = $('#results'); results.replaceChildren();
@@ -58,12 +54,7 @@ function directory({ resources, taxonomy }) {
       const empty = el('div', '', 'panel'); empty.append(el('h2', 'No resources match'), el('p', 'Try a broader search, remove a filter, or clear all selections.'));
       const clear = el('button', 'Clear search and filters'); clear.type = 'button'; clear.addEventListener('click', () => { reset(); $('#query').focus(); }); empty.append(clear); results.append(empty);
     }
-    for (const r of selected) {
-      const card = el('article', '', 'card'); card.append(el('span', r.isSample ? 'Demonstration resource' : 'Resource', 'sample'), el('h2', r.title), el('p', r.summary));
-      const metadata = el('dl'); for (const [key, title] of Object.entries(facets)) metadata.append(el('dt', title), el('dd', labels(r, key, taxonomy))); card.append(metadata);
-      const params = new URLSearchParams({ id: r.id }); if (query) params.set('return', query);
-      const view = link('View resource', `resource.html?${params}`, 'button'); view.setAttribute('aria-label', `View resource: ${r.title}`); card.append(view); results.append(card);
-    }
+    for (const r of selected) results.append(resourceCard(r, taxonomy, query, 'h2'));
   }
   function reset() { state = readState('', taxonomy); update(); }
   $('#search-form').addEventListener('submit', event => { event.preventDefault(); state.q = $('#query').value.trim(); update(); });
@@ -94,4 +85,35 @@ function detail({ resources, taxonomy }) {
   }
   if (!materials.children.length) target.append(el('p', 'No materials specified.')); else target.append(materials);
 }
-if (page === 'resources' || page === 'resource') load();
+if (page === 'resources' || page === 'resource' || (page === 'index' && $('#data-state'))) load();
+
+// One set of filters and cards serves both concepts and both browsing entry points.
+function buildFilters(target, taxonomy, onChange) {
+  for (const [key, label] of Object.entries(facets)) {
+    const group = el('fieldset'); group.append(el('legend', label));
+    for (const [value, title] of Object.entries(taxonomy[key])) {
+      const row = el('label', '', 'check-label'); const box = el('input');
+      box.type = 'checkbox'; box.name = key; box.value = value;
+      if (onChange) box.addEventListener('change', onChange);
+      row.append(box, document.createTextNode(title)); group.append(row);
+    }
+    target.append(group);
+  }
+}
+function resourceCard(r, taxonomy, query = '', heading = 'h3') {
+  const card = el('article', '', 'card');
+  card.append(el('span', r.isSample ? 'Demonstration resource' : 'Resource', 'sample'), el(heading, r.title), el('p', r.summary));
+  const metadata = el('dl');
+  for (const key of ['ageGroups', 'audiences', 'formats']) metadata.append(el('dt', facets[key]), el('dd', labels(r, key, taxonomy)));
+  card.append(metadata);
+  const params = new URLSearchParams({ id: r.id }); if (query) params.set('return', query);
+  const view = link('View resource', `resource.html?${params}`, 'button');
+  view.setAttribute('aria-label', `View resource: ${r.title}`); card.append(view);
+  return card;
+}
+function home({ resources, taxonomy }) {
+  const filters = $('#home-filters'); filters.replaceChildren(); buildFilters(filters, taxonomy);
+  const featured = resources.filter(r => r.featured === true);
+  $('#featured-resources').replaceChildren(...featured.slice(0, 3).map(r => resourceCard(r, taxonomy, 'featured=1')));
+  $('#featured-section').hidden = !featured.length;
+}

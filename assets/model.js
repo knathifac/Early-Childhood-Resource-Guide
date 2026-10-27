@@ -18,12 +18,13 @@ export function validateData(data) {
 }
 export function readState(search, taxonomy) {
   const params = new URLSearchParams(search);
-  const state = { q: (params.get('q') || '').trim(), sort: params.get('sort') === 'desc' ? 'desc' : 'asc' };
+  const state = { featured: params.get('featured') === '1', q: (params.get('q') || '').trim(), sort: params.get('sort') === 'desc' ? 'desc' : 'asc' };
   for (const key of Object.keys(facets)) state[key] = [...new Set(params.getAll(key).filter(v => Object.hasOwn(taxonomy[key], v)))];
   return state;
 }
 export function writeState(state) {
   const params = new URLSearchParams();
+  if (state.featured) params.set('featured', '1');
   if (state.q) params.set('q', state.q);
   for (const key of Object.keys(facets)) for (const value of state[key]) params.append(key, value);
   if (state.sort === 'desc') params.set('sort', 'desc');
@@ -33,6 +34,7 @@ export function labels(resource, key, taxonomy) { return (resource[key] || []).m
 export function selectResources(resources, state, taxonomy) {
   const words = state.q.toLocaleLowerCase().split(/\s+/).filter(Boolean);
   return resources.filter(r => {
+    if (state.featured && r.featured !== true) return false;
     const haystack = [r.title, r.summary, r.description, ...Object.keys(facets).map(k => labels(r, k, taxonomy))].join(' ').toLocaleLowerCase();
     return words.every(w => haystack.includes(w)) && Object.keys(facets).every(k => !state[k].length || state[k].some(v => (r[k] || []).includes(v)));
   }).sort((a, b) => (state.sort === 'desc' ? -1 : 1) * a.title.localeCompare(b.title, 'en') || a.id.localeCompare(b.id, 'en'));
