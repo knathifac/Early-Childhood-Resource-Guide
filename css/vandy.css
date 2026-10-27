@@ -103,16 +103,114 @@ main > h1 {
 }
 h2 { font-weight: 700; }
 
-/* ---- Hero: cream editorial band ---- */
-.hero {
-  background: var(--vandy-cream-soft);
-  border: 1px solid var(--vandy-line);
-  border-left: 6px solid var(--vandy-gold);
-  padding: 44px 40px;
+/* ---- Hero: plain white title block (mirrors Peabody page "topper") ---- */
+.hero,
+body[data-page="index"] .hero {
+  background: var(--vandy-white);
+  padding: 44px 0 8px;
   margin-top: 28px;
 }
-.hero h1 { border: 0; }
-.hero p { color: var(--vandy-gray); }
+.hero h1,
+body[data-page="index"] .hero h1 {
+  border: 0;
+  max-width: none;
+  margin: 0 0 24px;
+  font-family: "Jannon Display", Times, "Times New Roman", serif;
+  font-weight: 300;
+  font-size: clamp(1.75rem, 5.15vw, 4.5rem);   /* 28px mobile → 72px desktop */
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--vandy-black);
+}
+.hero > p {
+  margin: 0;
+  max-width: 44ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 300;
+  font-size: clamp(1.0625rem, 1.7vw, 1.46rem);  /* 17px mobile → ~23px desktop */
+  line-height: 1.4;
+  color: var(--vandy-black);
+}
+
+/* ---- Pill button (mirrors Peabody "PCS for…" standard buttons) ---- */
+.hero .button.pill { margin-top: 28px; }
+a.button.pill {
+  min-height: 0;
+  padding: 10px 18px 8px;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  background: #f5f3ef;
+  color: var(--vandy-black);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  transition: all .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+a.button.pill:hover,
+a.button.pill:focus-visible {
+  background: var(--vandy-white);
+  border-color: var(--vandy-cream);
+  color: var(--vandy-black);
+}
+@media (min-width: 600px) {
+  a.button.pill { font-size: 17px; min-width: 160px; padding: 14px 24px 12px; }
+}
+
+/* ---- Home search (mirrors Peabody site search form) ---- */
+[data-page="index"] .search label[for="home-search"] {
+  /* Peabody shows no visible label; keep it for screen readers */
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+[data-page="index"] .search > .row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+[data-page="index"] .search input[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  min-height: 0;
+  padding: 16px 12px 12px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: rgba(245, 243, 239, 0.75);
+  color: var(--vandy-black);
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1;
+}
+[data-page="index"] .search input[type="search"]::placeholder { color: #555555; opacity: 1; }
+[data-page="index"] .search input[type="search"]:focus { border-color: #1c83fc; }
+[data-page="index"] .search > .row button[type="submit"] {
+  min-width: 160px;
+  min-height: 0;
+  padding: 14px 24px 12px;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  background: var(--vandy-black);
+  color: var(--vandy-white);
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: normal;
+  transition: all .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+[data-page="index"] .search > .row button[type="submit"]:hover,
+[data-page="index"] .search > .row button[type="submit"]:focus-visible {
+  background: var(--vandy-white);
+  border-color: var(--vandy-cream);
+  color: var(--vandy-black);
+}
 
 /* ---- Buttons: black primary, gold hover rule ---- */
 .button.primary, .primary {
