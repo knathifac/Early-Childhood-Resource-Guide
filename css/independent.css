@@ -184,3 +184,7 @@ main p a { color: var(--coral-deep); }
 
 /* ---- Footer ---- */
 footer { border-top: 4px solid var(--yellow); }
+
+/* Maintain readable link and chip contrast on warm surfaces. */
+main p a { color: var(--teal); }
+.chips button:hover { background: var(--teal-deep); border-color: var(--teal-deep); }

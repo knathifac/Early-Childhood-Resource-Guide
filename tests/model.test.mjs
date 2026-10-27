@@ -27,3 +27,9 @@ for (const url of ['javascript:alert(1)', 'data:text/html,x', '//example.com', '
 assert.equal(safeMaterialURL('materials/activity.pdf'), 'materials/activity.pdf');
 assert.equal(safeMaterialURL('https://example.com/material.pdf'), 'https://example.com/material.pdf');
 console.log('PASS: data coverage, sample safeguards, OR/AND filtering, search, sorting, URL round trip, missing metadata, validation, and URL safety.');
+// Featured links must round-trip, combine with filters, and clear back to all resources.
+assert.equal(selected('featured=1').length, 3);
+assert.ok(selected('featured=1&topics=literacy').every(r => r.featured && r.topics.includes('literacy')));
+assert.deepEqual(readState(writeState(readState('featured=1&q=Sample&audiences=families', taxonomy)), taxonomy), readState('featured=1&q=Sample&audiences=families', taxonomy));
+assert.equal(selected('featured=unknown').length, 15);
+console.log('PASS: featured selection and URL state.');

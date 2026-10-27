@@ -63,7 +63,8 @@
         }
       ],
       "isSample": true,
-      "lastReviewed": null
+      "lastReviewed": null,
+      "featured": true
     },
     {
       "id": "sample-shape-hunt",
@@ -234,7 +235,8 @@
         }
       ],
       "isSample": true,
-      "lastReviewed": null
+      "lastReviewed": null,
+      "featured": true
     },
     {
       "id": "sample-rhyme-play",
@@ -406,7 +408,8 @@
         }
       ],
       "isSample": true,
-      "lastReviewed": null
+      "lastReviewed": null,
+      "featured": true
     },
     {
       "id": "sample-taking-turns",
