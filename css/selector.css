@@ -66,9 +66,6 @@
   inset: 0 0 auto 0;
   height: 6px;
 }
-.concept-vandy::before {
-  background: linear-gradient(90deg, #1c1c1c 0 50%, #cfae70 50% 100%);
-}
 .concept-warm::before {
   background: linear-gradient(90deg, #1f5f6b 0 33%, #e07a5f 33% 66%, #f2b84b 66% 100%);
 }
