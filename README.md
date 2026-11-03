@@ -6,7 +6,7 @@ The root `index.html` is a neutral **concept selector** that links to the concep
 
 ## Design concept
 
-- **COA 1 — Warm & Child-Centered** (`/independent/`): A distinct, warmer standalone identity (teal/coral/golden-yellow/sage palette, rounded cards, friendly humanist type) that stays professional and research-appropriate.
+- **COA 1 — Warm & Child-Centered** (`/independent/`): A distinct, warmer standalone identity (teal/coral/golden-yellow/sage palette, rounded cards, sleek modern Inter type) that stays professional and research-appropriate.
 
 ## Structure
 
@@ -41,7 +41,7 @@ Then open http://localhost:8000/ and open the concept. Compatible with GitHub Pa
 
 The concept homepage offers a welcome, search, collapsed **Advanced Search** with all five existing filter groups, **Browse All Resources**, and three compact featured cards. Search and browse use the same `resources.html` listing within the concept. An unfiltered visit starts with filters collapsed; links containing filters open them so the audience and other choices are visible. Active chips, Clear all, empty-result recovery, title sorting, browser Back/Forward, and details return links preserve the browsing flow. Audience remains an editable filter; this project has no separate audience-path navigation.
 
-The concept uses a teal/warm palette, rounded cards, and friendly typography. No backend or dependencies were added.
+The concept uses a teal/warm palette, rounded cards, and Inter typography (loaded from Google Fonts, with a system-font fallback offline). No backend or dependencies were added.
 
 ### Updating resources
 
