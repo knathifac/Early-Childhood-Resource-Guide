@@ -117,3 +117,55 @@ function home({ resources, taxonomy }) {
   $('#featured-resources').replaceChildren(...featured.slice(0, 3).map(r => resourceCard(r, taxonomy, 'featured=1')));
   $('#featured-section').hidden = !featured.length;
 }
+
+// ---- Light / dark theme toggle --------------------------------------------
+// The theme is applied to <html data-theme="..."> as early as possible by the
+// inline head script (to avoid a flash). Here we keep the toggle buttons in
+// sync and persist the user's choice. Values: "light", "dark". No stored value
+// means "follow the OS" (handled by prefers-color-scheme in CSS).
+(function themeToggle() {
+  const STORAGE_KEY = 'ecrg-theme';
+  const root = document.documentElement;
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function stored() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch { return null; }
+  }
+  function effectiveTheme() {
+    const saved = stored();
+    if (saved === 'light' || saved === 'dark') return saved;
+    return prefersDark.matches ? 'dark' : 'light';
+  }
+  function apply(theme) {
+    // theme is 'light' or 'dark'; persist and reflect on <html>.
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem(STORAGE_KEY, theme); } catch { /* ignore */ }
+    syncButtons(theme);
+  }
+  function syncButtons(theme) {
+    const isDark = theme === 'dark';
+    for (const button of document.querySelectorAll('.theme-toggle')) {
+      button.setAttribute('aria-pressed', String(isDark));
+      const icon = button.querySelector('.theme-toggle-icon');
+      const text = button.querySelector('.theme-toggle-text');
+      if (icon) icon.textContent = isDark ? '☀️' : '🌙';
+      if (text) text.textContent = isDark ? 'Light' : 'Dark';
+      button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      button.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+    }
+  }
+
+  // Reflect the current effective theme on the buttons at load.
+  syncButtons(effectiveTheme());
+
+  for (const button of document.querySelectorAll('.theme-toggle')) {
+    button.addEventListener('click', () => {
+      apply(effectiveTheme() === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  // If the user has not made an explicit choice, follow OS changes live.
+  prefersDark.addEventListener('change', () => {
+    if (stored() !== 'light' && stored() !== 'dark') syncButtons(effectiveTheme());
+  });
+})();

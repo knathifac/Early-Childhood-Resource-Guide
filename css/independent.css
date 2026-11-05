@@ -188,3 +188,176 @@ footer { border-top: 4px solid var(--yellow); }
 /* Maintain readable link and chip contrast on warm surfaces. */
 main p a { color: var(--teal); }
 .chips button:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
+
+/* ============================================================
+   Dark mode — COA 1 (Warm & Child-Centered)
+   Applied when <html data-theme="dark"> is set, or when the OS
+   prefers dark and the user has not chosen a theme
+   (<html data-theme="auto"> or no attribute). The warm identity
+   is preserved: teal/coral/yellow/sage accents stay, surfaces
+   and text invert to a deep, warm charcoal-green scheme.
+   ============================================================ */
+
+:root[data-theme="dark"],
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
+:root[data-theme="dark"] {
+  /* Warm, dark surfaces */
+  --color-bg: #121a1a;
+  --color-surface: #1b2726;
+  --color-surface-alt: #1f2d2c;
+  --color-text: #eef3ef;
+  --color-text-muted: #aebbb6;
+  --color-heading: #7fc9d6;
+
+  /* Accent stays warm; lighten teal so it reads on dark */
+  --color-accent: #2f93a6;
+  --color-accent-contrast: #0d1414;
+  --color-accent-hover: #46aec1;
+
+  --color-border: #32413f;
+  --color-border-soft: #2a3938;
+
+  /* Header stays deep teal, slightly darker for dark mode */
+  --color-header-bg: #123138;
+  --color-header-text: #ffffff;
+  --color-header-border: var(--yellow);
+  --color-nav-link: #d7e6e2;
+  --color-nav-link-active: var(--yellow);
+  --color-nav-link-hover: var(--yellow);
+
+  /* Footer */
+  --color-footer-bg: #0d1716;
+  --color-footer-text: #e3ece8;
+
+  /* Notices — warm, muted amber on dark */
+  --color-notice-bg: #2c2718;
+  --color-notice-border: var(--yellow);
+  --color-notice-text: #f0dfb4;
+
+  --color-focus: #f2b84b;
+
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.45);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --shadow-header: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Component tweaks so the warm detailing reads correctly on dark. */
+:root[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #1b2b2a 0%, #2a2518 100%);
+  border-color: var(--color-border);
+}
+:root[data-theme="dark"] .hero h1 { color: #7fc9d6; }
+:root[data-theme="dark"] h1 { color: #eef3ef; }
+:root[data-theme="dark"] h2 { color: #7fc9d6; }
+
+:root[data-theme="dark"] .panel,
+:root[data-theme="dark"] .card {
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+:root[data-theme="dark"] .panel { color: #9fd9e3; }
+
+:root[data-theme="dark"] .button:not(.primary) {
+  background: var(--color-surface-alt);
+  color: #8fd3df;
+  border-color: var(--color-accent);
+}
+:root[data-theme="dark"] .button:not(.primary):hover { background: var(--color-surface); }
+:root[data-theme="dark"] .button.primary,
+:root[data-theme="dark"] .primary { box-shadow: 0 3px 0 0 #0d4650; }
+:root[data-theme="dark"] .button.primary:hover,
+:root[data-theme="dark"] .primary:hover { box-shadow: 0 2px 0 0 #0d4650; }
+
+:root[data-theme="dark"] details#filter-panel {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+:root[data-theme="dark"] legend { color: #7fc9d6; border-bottom-color: var(--color-border); }
+
+:root[data-theme="dark"] .chips button {
+  background: var(--color-surface-alt);
+  border-color: var(--color-accent);
+  color: #9fd9e3;
+}
+:root[data-theme="dark"] main p a { color: #8fd3df; }
+
+/* Same scheme when the OS prefers dark and no explicit theme is chosen. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]),
+  :root[data-theme="auto"] {
+    --color-bg: #121a1a;
+    --color-surface: #1b2726;
+    --color-surface-alt: #1f2d2c;
+    --color-text: #eef3ef;
+    --color-text-muted: #aebbb6;
+    --color-heading: #7fc9d6;
+    --color-accent: #2f93a6;
+    --color-accent-contrast: #0d1414;
+    --color-accent-hover: #46aec1;
+    --color-border: #32413f;
+    --color-border-soft: #2a3938;
+    --color-header-bg: #123138;
+    --color-header-text: #ffffff;
+    --color-nav-link: #d7e6e2;
+    --color-footer-bg: #0d1716;
+    --color-footer-text: #e3ece8;
+    --color-notice-bg: #2c2718;
+    --color-notice-text: #f0dfb4;
+    --color-focus: #f2b84b;
+    --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.45);
+    --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.55);
+    --shadow-header: 0 2px 12px rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .hero,
+  :root[data-theme="auto"] .hero {
+    background: linear-gradient(135deg, #1b2b2a 0%, #2a2518 100%);
+    border-color: #32413f;
+  }
+  :root:not([data-theme="light"]):not([data-theme="dark"]) h1,
+  :root[data-theme="auto"] h1 { color: #eef3ef; }
+  :root:not([data-theme="light"]):not([data-theme="dark"]) h2,
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .hero h1,
+  :root[data-theme="auto"] h2,
+  :root[data-theme="auto"] .hero h1 { color: #7fc9d6; }
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .panel,
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .card,
+  :root[data-theme="auto"] .panel,
+  :root[data-theme="auto"] .card { background: #1f2d2c; color: #eef3ef; }
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .button:not(.primary),
+  :root[data-theme="auto"] .button:not(.primary) {
+    background: #1f2d2c; color: #8fd3df; border-color: #2f93a6;
+  }
+  :root:not([data-theme="light"]):not([data-theme="dark"]) details#filter-panel,
+  :root[data-theme="auto"] details#filter-panel { background: #1b2726; border-color: #32413f; }
+  :root:not([data-theme="light"]):not([data-theme="dark"]) legend,
+  :root[data-theme="auto"] legend { color: #7fc9d6; border-bottom-color: #32413f; }
+  :root:not([data-theme="light"]):not([data-theme="dark"]) .chips button,
+  :root[data-theme="auto"] .chips button { background: #1f2d2c; border-color: #2f93a6; color: #9fd9e3; }
+  :root:not([data-theme="light"]):not([data-theme="dark"]) main p a,
+  :root[data-theme="auto"] main p a { color: #8fd3df; }
+}
+
+/* ---- Theme toggle button in the header ---- */
+.theme-toggle {
+  min-height: 40px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-header-text);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  line-height: 1;
+}
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-header-text);
+}
+.theme-toggle .theme-toggle-icon { font-size: 1.05rem; }
