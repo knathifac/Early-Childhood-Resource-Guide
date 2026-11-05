@@ -1,7 +1,19 @@
-import { facets, validateData, readState, writeState, labels, selectResources, safeMaterialURL } from './model.js';
+import { facets, validateData, readState, writeState, selectResources, safeMaterialURL } from './model.js';
 const $ = selector => document.querySelector(selector);
 function el(tag, text, className) { const node = document.createElement(tag); if (text) node.textContent = text; if (className) node.className = className; return node; }
 function link(text, href, className) { const a = el('a', text, className); a.href = href; return a; }
+function categoryLinks(resource, key, taxonomy) {
+  const value = el('dd');
+  for (const tag of resource[key] || []) {
+    if (value.childNodes.length) value.append(document.createTextNode(', '));
+    const params = new URLSearchParams({ [key]: tag });
+    const category = link(taxonomy[key][tag], `resources.html?${params}`);
+    category.setAttribute('aria-label', `Browse resources with ${facets[key].toLowerCase()}: ${taxonomy[key][tag]}`);
+    value.append(category);
+  }
+  if (!value.childNodes.length) value.textContent = 'Not specified';
+  return value;
+}
 const mobile = window.matchMedia('(max-width: 760px)');
 const menu = $('#menu-toggle');
 const nav = $('#navigation');
@@ -74,7 +86,7 @@ function detail({ resources, taxonomy }) {
   target.append(el('h1', resource.title));
   if (resource.isSample) target.append(el('p', 'Demonstration resource — not a verified resource. Sample materials are unavailable.', 'notice'));
   target.append(el('p', resource.summary), el('p', resource.description));
-  const metadata = el('dl'); for (const [key, title] of Object.entries(facets)) metadata.append(el('dt', title), el('dd', labels(resource, key, taxonomy)));
+  const metadata = el('dl'); for (const [key, title] of Object.entries(facets)) metadata.append(el('dt', title), categoryLinks(resource, key, taxonomy));
   metadata.append(el('dt', 'Provider / attribution'), el('dd', resource.provider || 'Not specified'), el('dt', 'Last reviewed'), el('dd', resource.lastReviewed || 'Not reviewed')); target.append(metadata, el('h2', 'How to use this resource'), el('p', resource.instructions || 'Instructions not specified.'), el('h2', 'Materials'));
   const materials = el('ul');
   for (const material of resource.materials || []) {
@@ -104,7 +116,7 @@ function resourceCard(r, taxonomy, query = '', heading = 'h3') {
   const card = el('article', '', 'card');
   card.append(el('span', r.isSample ? 'Demonstration resource' : 'Resource', 'sample'), el(heading, r.title), el('p', r.summary));
   const metadata = el('dl');
-  for (const key of ['ageGroups', 'audiences', 'formats']) metadata.append(el('dt', facets[key]), el('dd', labels(r, key, taxonomy)));
+  for (const key of Object.keys(facets)) metadata.append(el('dt', facets[key]), categoryLinks(r, key, taxonomy));
   card.append(metadata);
   const params = new URLSearchParams({ id: r.id }); if (query) params.set('return', query);
   const view = link('View resource', `resource.html?${params}`, 'button');
