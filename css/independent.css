@@ -100,7 +100,7 @@ nav [aria-current="page"] {
 }
 
 /* ---- Headings: tight tracking for a crisp, modern feel ---- */
-h1 { color: var(--charcoal); font-weight: 800; letter-spacing: -0.025em; }
+h1 { color: var(--teal-deep); font-weight: 800; letter-spacing: -0.025em; }
 h2 { color: var(--teal); font-weight: 700; letter-spacing: -0.015em; }
 h3 { letter-spacing: -0.01em; }
 .brand { letter-spacing: -0.01em; }
@@ -253,7 +253,7 @@ main p a { color: var(--teal); }
   border-color: var(--color-border);
 }
 :root[data-theme="dark"] .hero h1 { color: #a3c7c9; }
-:root[data-theme="dark"] h1 { color: #dde5e1; }
+:root[data-theme="dark"] h1 { color: #a3c7c9; }
 :root[data-theme="dark"] h2 { color: #a3c7c9; }
 
 :root[data-theme="dark"] .panel,
@@ -321,7 +321,7 @@ main p a { color: var(--teal); }
     border-color: #32413f;
   }
   :root:not([data-theme="light"]):not([data-theme="dark"]) h1,
-  :root[data-theme="auto"] h1 { color: #dde5e1; }
+  :root[data-theme="auto"] h1 { color: #a3c7c9; }
   :root:not([data-theme="light"]):not([data-theme="dark"]) h2,
   :root:not([data-theme="light"]):not([data-theme="dark"]) .hero h1,
   :root[data-theme="auto"] h2,
