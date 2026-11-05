@@ -198,6 +198,8 @@ main p a { color: var(--teal); }
    (<html data-theme="auto"> or no attribute). The warm identity
    is preserved: teal/coral/yellow/sage accents stay, surfaces
    and text invert to a deep, warm charcoal-green scheme.
+   Blues are desaturated (~25-30% saturation) to avoid glare on
+   dark surfaces; all text meets WCAG AA (4.5:1) on every surface.
    ============================================================ */
 
 :root[data-theme="dark"],
@@ -209,14 +211,14 @@ main p a { color: var(--teal); }
   --color-bg: #121a1a;
   --color-surface: #1b2726;
   --color-surface-alt: #1f2d2c;
-  --color-text: #eef3ef;
+  --color-text: #dde5e1;
   --color-text-muted: #aebbb6;
-  --color-heading: #7fc9d6;
+  --color-heading: #a3c7c9;
 
   /* Accent stays warm; lighten teal so it reads on dark */
-  --color-accent: #2f93a6;
+  --color-accent: #6aa8b0;
   --color-accent-contrast: #0d1414;
-  --color-accent-hover: #46aec1;
+  --color-accent-hover: #7fb5bc;
 
   --color-border: #32413f;
   --color-border-soft: #2a3938;
@@ -250,20 +252,20 @@ main p a { color: var(--teal); }
   background: linear-gradient(135deg, #1b2b2a 0%, #2a2518 100%);
   border-color: var(--color-border);
 }
-:root[data-theme="dark"] .hero h1 { color: #7fc9d6; }
-:root[data-theme="dark"] h1 { color: #eef3ef; }
-:root[data-theme="dark"] h2 { color: #7fc9d6; }
+:root[data-theme="dark"] .hero h1 { color: #a3c7c9; }
+:root[data-theme="dark"] h1 { color: #dde5e1; }
+:root[data-theme="dark"] h2 { color: #a3c7c9; }
 
 :root[data-theme="dark"] .panel,
 :root[data-theme="dark"] .card {
   background: var(--color-surface-alt);
   color: var(--color-text);
 }
-:root[data-theme="dark"] .panel { color: #9fd9e3; }
+:root[data-theme="dark"] .panel { color: #a8cccf; }
 
 :root[data-theme="dark"] .button:not(.primary) {
   background: var(--color-surface-alt);
-  color: #8fd3df;
+  color: #a8cccf;
   border-color: var(--color-accent);
 }
 :root[data-theme="dark"] .button:not(.primary):hover { background: var(--color-surface); }
@@ -276,14 +278,14 @@ main p a { color: var(--teal); }
   background: var(--color-surface);
   border-color: var(--color-border);
 }
-:root[data-theme="dark"] legend { color: #7fc9d6; border-bottom-color: var(--color-border); }
+:root[data-theme="dark"] legend { color: #a3c7c9; border-bottom-color: var(--color-border); }
 
 :root[data-theme="dark"] .chips button {
   background: var(--color-surface-alt);
   border-color: var(--color-accent);
-  color: #9fd9e3;
+  color: #a8cccf;
 }
-:root[data-theme="dark"] main p a { color: #8fd3df; }
+:root[data-theme="dark"] main p a { color: #a8cccf; }
 
 /* Same scheme when the OS prefers dark and no explicit theme is chosen. */
 @media (prefers-color-scheme: dark) {
@@ -292,12 +294,12 @@ main p a { color: var(--teal); }
     --color-bg: #121a1a;
     --color-surface: #1b2726;
     --color-surface-alt: #1f2d2c;
-    --color-text: #eef3ef;
+    --color-text: #dde5e1;
     --color-text-muted: #aebbb6;
-    --color-heading: #7fc9d6;
-    --color-accent: #2f93a6;
+    --color-heading: #a3c7c9;
+    --color-accent: #6aa8b0;
     --color-accent-contrast: #0d1414;
-    --color-accent-hover: #46aec1;
+    --color-accent-hover: #7fb5bc;
     --color-border: #32413f;
     --color-border-soft: #2a3938;
     --color-header-bg: #123138;
@@ -319,27 +321,27 @@ main p a { color: var(--teal); }
     border-color: #32413f;
   }
   :root:not([data-theme="light"]):not([data-theme="dark"]) h1,
-  :root[data-theme="auto"] h1 { color: #eef3ef; }
+  :root[data-theme="auto"] h1 { color: #dde5e1; }
   :root:not([data-theme="light"]):not([data-theme="dark"]) h2,
   :root:not([data-theme="light"]):not([data-theme="dark"]) .hero h1,
   :root[data-theme="auto"] h2,
-  :root[data-theme="auto"] .hero h1 { color: #7fc9d6; }
+  :root[data-theme="auto"] .hero h1 { color: #a3c7c9; }
   :root:not([data-theme="light"]):not([data-theme="dark"]) .panel,
   :root:not([data-theme="light"]):not([data-theme="dark"]) .card,
   :root[data-theme="auto"] .panel,
-  :root[data-theme="auto"] .card { background: #1f2d2c; color: #eef3ef; }
+  :root[data-theme="auto"] .card { background: #1f2d2c; color: #dde5e1; }
   :root:not([data-theme="light"]):not([data-theme="dark"]) .button:not(.primary),
   :root[data-theme="auto"] .button:not(.primary) {
-    background: #1f2d2c; color: #8fd3df; border-color: #2f93a6;
+    background: #1f2d2c; color: #a8cccf; border-color: #6aa8b0;
   }
   :root:not([data-theme="light"]):not([data-theme="dark"]) details#filter-panel,
   :root[data-theme="auto"] details#filter-panel { background: #1b2726; border-color: #32413f; }
   :root:not([data-theme="light"]):not([data-theme="dark"]) legend,
-  :root[data-theme="auto"] legend { color: #7fc9d6; border-bottom-color: #32413f; }
+  :root[data-theme="auto"] legend { color: #a3c7c9; border-bottom-color: #32413f; }
   :root:not([data-theme="light"]):not([data-theme="dark"]) .chips button,
-  :root[data-theme="auto"] .chips button { background: #1f2d2c; border-color: #2f93a6; color: #9fd9e3; }
+  :root[data-theme="auto"] .chips button { background: #1f2d2c; border-color: #6aa8b0; color: #a8cccf; }
   :root:not([data-theme="light"]):not([data-theme="dark"]) main p a,
-  :root[data-theme="auto"] main p a { color: #8fd3df; }
+  :root[data-theme="auto"] main p a { color: #a8cccf; }
 }
 
 /* ---- Theme toggle button in the header ---- */
